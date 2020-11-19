@@ -51,4 +51,27 @@ var renderMovieElements = function (movies) {
 };
 
 // Show all movie elements
-renderMovieElements(normalizedMovies);
+// renderMovieElements(normalizedMovies);
+
+elMoviesForm.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+
+  // Take value of select and search input
+  var searchByCategorySelectValue = elMoviesSearchBySelect.value;
+  var movieNameInputValue = elMoviesNameInput.value.trim();
+
+  var searchQuery = new RegExp(movieNameInputValue, 'gi');
+
+  var searchResults = [];
+  normalizedMovies.forEach(function (movie) {
+    if (movie.categories.includes(searchByCategorySelectValue) && movie.title.match(searchQuery)) {
+      searchResults.push(movie);
+    }
+  });
+
+  if (searchResults.length === 0) {
+    alert(`Can't find any movies`);
+  } else {
+    renderMovieElements(searchResults);
+  }
+});

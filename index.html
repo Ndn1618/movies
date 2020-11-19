@@ -20,19 +20,49 @@
 
       <form class="movies__form w-100 d-flex align-items-center bg-light mb-3 rounded overflow-hidden"
         action="https://echo.htmlacademy.ru" method="GET">
+        <label for="category-select"></label>
         <select
           class="movies__searchby-select form-control rounded-0 border-right border-top-0 border-bottom-0 border-left-0 shadow-none w-25"
-          required>
-          <option value="" disabled selected>Search by</option>
-          <option value="title">Movie title</option>
-          <option value="movieYear">Movie year</option>
-          <option value="movieRating">Movie rating</option>
-          <option value="categories">Categories</option>
-          <option value="language">Language</option>
+          id="category-select" name="category">
+          <option value="" disabled selected>Categories</option>
+          <option>Documentary</option>
+          <option>Music</option>
+          <option>Adventure</option>
+          <option>Animation</option>
+          <option>Comedy</option>
+          <option>Family</option>
+          <option>Fantasy</option>
+          <option>Horror</option>
+          <option>Drama</option>
+          <option>Sport</option>
+          <option>Romance</option>
+          <option>Action</option>
+          <option>Sci-Fi</option>
+          <option>News</option>
+          <option>History</option>
+          <option>Thriller</option>
+          <option>Western</option>
+          <option>Crime</option>
+          <option>Mystery</option>
+          <option>Biography</option>
+          <option>Musical</option>
+          <option>War</option>
+          <option>Reality-TV</option>
         </select>
         <label class="sr-only mb-0" for="search-movie-input">Search movie</label>
         <input class="movies__name-input form-control rounded-0 border-0 shadow-none flex-grow-1"
-          id="search-movie-input" name="movie-name" type="search" placeholder="Search movie..." required>
+          id="search-movie-input" name="movie-name" type="search" placeholder="Search movie...">
+
+        <select class="lister-sort-by-select" name="sort">
+          <option value="list_order:ascending">List Order</option>
+          <option value="moviemeter:ascending" selected="selected">Popularity</option>
+          <option value="alpha:ascending">Alphabetical</option>
+          <option value="user_rating:descending">IMDb Rating</option>
+          <option value="num_votes:descending">Number of Votes</option>
+          <option value="release_date:descending">Release Date</option>
+          <option value="runtime:descending">Runtime</option>
+          <option value="date_added:descending">Date Added</option>
+        </select>
 
         <button class="btn btn-dark rounded-0" type="submit">Search</button>
       </form>
