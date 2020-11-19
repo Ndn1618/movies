@@ -29,6 +29,10 @@ var createMovieElement = function (movie) {
   $_('.movie__fulltitle', movieElement).textContent = movie.fulltitle;
   $_('.movie__duration', movieElement).textContent = movie.runtime;
   $_('.movie__categories', movieElement).textContent = movie.categories.join(', ');
+  $_('.movie__language', movieElement).textContent = movie.language;
+  $_('.movie__rate', movieElement).textContent = movie.movieRating;
+  $_('.movie__summary', movieElement).textContent = movie.summary;
+  $_('.movie__trailer-link', movieElement).href = movie.trailerLink;
 
   return movieElement;
 };
