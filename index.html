@@ -20,9 +20,9 @@
 
       <form class="movies__form w-100 d-flex align-items-center bg-light mb-3 rounded overflow-hidden"
         action="https://echo.htmlacademy.ru" method="GET">
-        <label for="category-select"></label>
+        <label class="sr-only" for="category-select">Select category of movie</label>
         <select
-          class="movies__searchby-select form-control rounded-0 border-right border-top-0 border-bottom-0 border-left-0 shadow-none w-25"
+          class="movies__searchby-select form-control rounded-0 border-top-0 border-bottom-0 border-left-0 shadow-none w-25"
           id="category-select" name="category">
           <option value="" disabled selected>Categories</option>
           <option>Documentary</option>
@@ -53,15 +53,15 @@
         <input class="movies__name-input form-control rounded-0 border-0 shadow-none flex-grow-1"
           id="search-movie-input" name="movie-name" type="search" placeholder="Search movie...">
 
-        <select class="lister-sort-by-select" name="sort">
-          <option value="list_order:ascending">List Order</option>
-          <option value="moviemeter:ascending" selected="selected">Popularity</option>
-          <option value="alpha:ascending">Alphabetical</option>
-          <option value="user_rating:descending">IMDb Rating</option>
-          <option value="num_votes:descending">Number of Votes</option>
-          <option value="release_date:descending">Release Date</option>
-          <option value="runtime:descending">Runtime</option>
-          <option value="date_added:descending">Date Added</option>
+        <label class="sr-only" for="sort-movie-select">Sort movies</label>
+        <select
+          class="movie-sort-by-select form-control w-25 border-top-0 border-bottom-0 border-right-0 rounded-0 shadow-none"
+          id="sort-movie-select" name="sort">
+          <option value="" selected disabled>Sort movies</option>
+          <option value="alphabetical">Alphabetical</option>
+          <option value="rating">IMDb Rating</option>
+          <!-- <option value="release_date">Release Year</option>
+          <option value="runtime">Runtime</option> -->
         </select>
 
         <button class="btn btn-dark rounded-0" type="submit">Search</button>

@@ -18,8 +18,13 @@ var normalizedMovies = movies.map(function (movie) {
 var elMoviesForm = $_('.movies__form');
 var elMoviesSearchBySelect = $_('.movies__searchby-select', elMoviesForm);
 var elMoviesNameInput = $_('.movies__name-input', elMoviesForm);
+var elSortMoviesBySelect = $_('.movie-sort-by-select');
 var elMoviesList = $_('.movies__list');
 var elMovieTemplate = $_('#movie-template').content;
+
+// Array of searched movies
+var searchResults = [];
+var searchResultsByCategory = [];
 
 // Create movie elements function
 var createMovieElement = function (movie) {
@@ -56,15 +61,13 @@ var renderMovieElements = function (movies) {
 elMoviesForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
-  // Take value of select and search input
-  var searchByCategorySelectValue = elMoviesSearchBySelect.value;
+  // Take value of search input
   var movieNameInputValue = elMoviesNameInput.value.trim();
 
   var searchQuery = new RegExp(movieNameInputValue, 'gi');
 
-  var searchResults = [];
   normalizedMovies.forEach(function (movie) {
-    if (movie.categories.includes(searchByCategorySelectValue) && movie.title.match(searchQuery)) {
+    if (movie.title.match(searchQuery)) {
       searchResults.push(movie);
     }
   });
@@ -74,4 +77,34 @@ elMoviesForm.addEventListener('submit', function (evt) {
   } else {
     renderMovieElements(searchResults);
   }
+});
+
+elMoviesSearchBySelect.addEventListener('input', function () {
+  var elMoviesSearchBySelectValue = elMoviesSearchBySelect.value;
+
+  searchResults.forEach(function (movie) {
+    if (movie.categories.includes(elMoviesSearchBySelectValue)) {
+      searchResultsByCategory.push(movie);
+    }
+  });
+
+  renderMovieElements(searchResultsByCategory);
+});
+
+elSortMoviesBySelect.addEventListener('input', function () {
+  if (elSortMoviesBySelect.value === 'alphabetical') {
+    searchResults.sort(function (a, b) {
+      var nameA = a.title.toLowerCase(), nameB = b.title.toLowerCase();
+      if (nameA < nameB) //sort string ascending
+        return -1;
+      if (nameA > nameB)
+        return 1;
+      return 0; //default return value (no sorting)
+    });
+  } else if (elSortMoviesBySelect.value === 'rating') {
+    searchResults.sort(function (a, b) {
+      return b.movieRating - a.movieRating;
+    });
+  }
+  renderMovieElements(searchResults);
 });
