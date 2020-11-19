@@ -12,6 +12,7 @@ body {
   padding: 0;
   margin: 0;
   font-family: "Livvic", "Arial", sans-serif;
+  background-color: #8a2be2;
 }
 
 img {
@@ -21,4 +22,21 @@ img {
 
 h1 {
   font-weight: bold;
+}
+
+.movies__heading {
+  color: #ffffff;
+  text-shadow: 2px 4px #000;
+}
+
+.movie__rate::before {
+  display: block;
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  background-image: url("../img/yellow-star.svg");
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  content: "";
 }
