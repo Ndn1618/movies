@@ -61,34 +61,26 @@ var renderMovieElements = function (movies) {
 elMoviesForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
-  // Take value of search input
+  searchResults = [];
+
+  // Take value of select and search input
+  var elMoviesSearchBySelectValue = elMoviesSearchBySelect.value;
   var movieNameInputValue = elMoviesNameInput.value.trim();
 
   var searchQuery = new RegExp(movieNameInputValue, 'gi');
 
   normalizedMovies.forEach(function (movie) {
-    if (movie.title.match(searchQuery)) {
+    if (movie.categories.includes(elMoviesSearchBySelectValue) && movie.title.match(searchQuery)) {
       searchResults.push(movie);
     }
   });
 
   if (searchResults.length === 0) {
+    elMoviesList.innerHTML = '';
     alert(`Can't find any movies`);
   } else {
     renderMovieElements(searchResults);
   }
-});
-
-elMoviesSearchBySelect.addEventListener('input', function () {
-  var elMoviesSearchBySelectValue = elMoviesSearchBySelect.value;
-
-  searchResults.forEach(function (movie) {
-    if (movie.categories.includes(elMoviesSearchBySelectValue)) {
-      searchResultsByCategory.push(movie);
-    }
-  });
-
-  renderMovieElements(searchResultsByCategory);
 });
 
 elSortMoviesBySelect.addEventListener('input', function () {
