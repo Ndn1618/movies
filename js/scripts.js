@@ -56,7 +56,7 @@ var renderMovieElements = function (movies) {
 };
 
 // Show all movie elements
-renderMovieElements(normalizedMovies);
+// renderMovieElements(normalizedMovies);
 
 elMoviesForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
