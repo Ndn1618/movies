@@ -83,6 +83,7 @@ elMoviesForm.addEventListener('submit', function (evt) {
   }
 });
 
+// Sort found movies alphabetical, by imdb_rating, release_date and runtime
 elSortMoviesBySelect.addEventListener('input', function () {
   if (elSortMoviesBySelect.value === 'alphabetical') {
     searchResults.sort(function (a, b) {
@@ -96,6 +97,14 @@ elSortMoviesBySelect.addEventListener('input', function () {
   } else if (elSortMoviesBySelect.value === 'rating') {
     searchResults.sort(function (a, b) {
       return b.movieRating - a.movieRating;
+    });
+  } else if (elSortMoviesBySelect.value === 'release_date') {
+    searchResults.sort(function (a, b) {
+      return b.movieYear - a.movieYear;
+    });
+  } else {
+    searchResults.sort(function (a, b) {
+      return b.runtime - a.runtime;
     });
   }
   renderMovieElements(searchResults);

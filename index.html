@@ -18,53 +18,52 @@
     <div class="container py-5">
       <h2 class="movies__heading h2 text-center font-weight-bold mb-4">The best movies are here!</h2>
 
-      <form class="movies__form w-100 d-flex align-items-center bg-light mb-3 rounded overflow-hidden"
+      <form class="movies__form d-flex flex-wrap align-items-center justify-content-center mb-3 rounded overflow-hidden"
         action="https://echo.htmlacademy.ru" method="GET">
-        <label class="sr-only" for="category-select">Select category of movie</label>
-        <select
-          class="movies__searchby-select form-control rounded-0 border-top-0 border-bottom-0 border-left-0 shadow-none w-25"
-          id="category-select" name="category" required>
-          <option value="" disabled selected>Categories</option>
-          <option>Documentary</option>
-          <option>Music</option>
-          <option>Adventure</option>
-          <option>Animation</option>
-          <option>Comedy</option>
-          <option>Family</option>
-          <option>Fantasy</option>
-          <option>Horror</option>
-          <option>Drama</option>
-          <option>Sport</option>
-          <option>Romance</option>
-          <option>Action</option>
-          <option>Sci-Fi</option>
-          <option>News</option>
-          <option>History</option>
-          <option>Thriller</option>
-          <option>Western</option>
-          <option>Crime</option>
-          <option>Mystery</option>
-          <option>Biography</option>
-          <option>Musical</option>
-          <option>War</option>
-          <option>Reality-TV</option>
-        </select>
-        <label class="sr-only mb-0" for="search-movie-input">Search movie</label>
-        <input class="movies__name-input form-control rounded-0 border-0 shadow-none flex-grow-1"
-          id="search-movie-input" name="movie-name" type="search" placeholder="Search movie...">
+        <div class="d-flex align-items-center">
+          <label class="sr-only" for="category-select">Select category of movie</label>
+          <select class="movies__searchby-select form-control rounded-0 shadow-none" id="category-select"
+            name="category" required>
+            <option value="" disabled selected>Categories</option>
+            <option>Documentary</option>
+            <option>Music</option>
+            <option>Adventure</option>
+            <option>Animation</option>
+            <option>Comedy</option>
+            <option>Family</option>
+            <option>Fantasy</option>
+            <option>Horror</option>
+            <option>Drama</option>
+            <option>Sport</option>
+            <option>Romance</option>
+            <option>Action</option>
+            <option>Sci-Fi</option>
+            <option>News</option>
+            <option>History</option>
+            <option>Thriller</option>
+            <option>Western</option>
+            <option>Crime</option>
+            <option>Mystery</option>
+            <option>Biography</option>
+            <option>Musical</option>
+            <option>War</option>
+            <option>Reality-TV</option>
+          </select>
+          <label class="sr-only mb-0" for="search-movie-input">Search movie</label>
+          <input class="movies__name-input form-control flex-grow-1 rounded-0 shadow-none" id="search-movie-input"
+            name="movie-name" type="search" placeholder="Search movie...">
+        </div>
 
         <label class="sr-only" for="sort-movie-select">Sort movies</label>
-        <select
-          class="movie-sort-by-select form-control w-25 border-top-0 border-bottom-0 border-right-0 rounded-0 shadow-none"
-          id="sort-movie-select" name="sort">
+        <select class="movie-sort-by-select form-control rounded-0 shadow-none" id="sort-movie-select" name="sort">
           <option value="" selected disabled>Sort movies</option>
           <option value="alphabetical">Alphabetical</option>
           <option value="rating">IMDb Rating</option>
-          <!-- <option value="release_date">Release Year</option>
-          <option value="runtime">Runtime</option> -->
+          <option value="release_date">Release Year</option>
+          <option value="runtime">Runtime</option>
         </select>
 
-        <button class="btn btn-dark rounded-0" type="submit">Search</button>
+        <button class="search-btn btn btn-dark rounded-0" type="submit">Search</button>
       </form>
 
       <ul class="movies__list list-group"></ul>
