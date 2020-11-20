@@ -58,6 +58,14 @@ h1 {
 }
 
 @media only screen and (min-width:992px) {
+  .movies__from-wrapper {
+    flex-grow: 1;
+  }
+
+  .movies__searchby-select {
+    width: 25%;
+  }
+
   .movie-sort-by-select {
     width: 15%;
   }
